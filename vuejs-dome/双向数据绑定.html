@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>我就是24K纯帅</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{1+1}}</h1>
+        <input type="text" v-model='message'>
+    </div>
+    <script>
+        var app=new Vue({
+            el:"#app",
+            data:{
+                message:'hello word!'
+            }
+        })    
+    </script>
+</body>
+</html>

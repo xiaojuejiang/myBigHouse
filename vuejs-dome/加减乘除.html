@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>我就是24K纯帅</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="number">
+        <select v-model="operation">
+            <option value="0">+</option>
+            <option value="1">-</option>
+            <option value="2">*</option>
+            <option value="3">/</option>
+        </select>
+        <input type="number">
+        <button>=</button>
+        <span>0</span>
+    </div>
+    <script>
+        const app=new Vue({
+            el:"#app",
+            data:{
+                operation:'1'
+            }
+        })
+    </script>
+</body>
+</html>

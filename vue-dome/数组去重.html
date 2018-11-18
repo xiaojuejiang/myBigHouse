@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // var arr = [1, 2, 3, 4, 5, 6, 2, 3, 2, 2, ]
+    // document.write(Array.from(new Set(arr)))
+    // console.log([...new Set(arr)])
+
+    // let obj={}
+    // for(let i=0;i<arr.length;i++){
+    //   if(!obj[arr[i]]){
+    //     obj[arr[i]]=1
+    //   }else{
+    //     obj[arr[i]]+=1
+    //   }
+    // }
+    // console.log(obj)
+    // var a=0;
+    // if(a){
+    //   console.log(123)
+    // }
+    var a=()=>{//箭头函数中没有this
+      return console.log(123)
+    }
+    var b=new a;//a is not a constructor
+    console.dir(b)
+
+  </script>
+</body>
+
+</html>

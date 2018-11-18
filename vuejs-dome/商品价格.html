@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>我就是24K纯帅</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model='price'><br>
+        <button v-on:click="count++">+</button>
+        <span>{{count}}</span>
+        <button v-on:click="count=count-1<0?0:count-1">-</button>
+        <br>
+        商品总价:<span>{{price*count}}</span>   
+    </div>
+    <script>
+        const app=new Vue({
+            el:'#app',
+            data:{
+                count:1,
+                price:5
+            }
+        })
+    </script>
+</body>
+</html> 

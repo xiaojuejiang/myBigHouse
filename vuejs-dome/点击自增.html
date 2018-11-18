@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>我就是24K纯帅</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="number"v-model='number'>
+        <button v-on:click="number++">dianji + 1</button>
+        <button v-on:click="handleIcrement">dianji+1</button>
+    </div>
+    <script>
+        const app=new Vue({
+            el:'#app',
+            //data中的this是window
+            data:{
+                number:1
+            },
+            //methods中的this是app对象
+            methods:{
+                handleIcrement:function(){
+                    this.number++;
+                }
+            }
+        })
+    </script>
+</body>
+</html>

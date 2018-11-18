@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>我就是24K纯帅</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #app{
+            width: 300px;
+            height: 300px;
+            margin: 50px auto;
+            border: 1px solid #ccc;
+        }
+        .done{
+            text-decoration:line-through;
+            color:#ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>TODO[active]</h1>
+        <p>{{todos.filter(itam=>!itam.done).length}} or {{todos.length}} remaning [active]</p>
+        <div class="box" v-for='(itam,index) in todos'>
+            <input type="checkbox" v-model="itam.done"><span v-bind:class="{done:itam.done}">{{itam.title}}</span>
+            <button @click="handleRemoveTodosClick(index)">x</button>
+            <br>
+        </div>
+        <!-- <input type="checkbox"><span>睡觉</span><br>
+        <input type="checkbox"><span>写代码</span><br> -->
+        <input type="text" v-model="todosText" @keydown.enter="handle"><button @click="handle">add</button>
+    </div>
+    <script>
+        var todos=[
+            {
+                id:1,
+                title:'吃饭',
+                done:true
+            },
+            {
+                id:2,
+                title:'睡觉',
+                done:false
+            },
+            {
+                id:3,
+                title:'写代码',
+                done:true
+            },
+        ];
+        const app=new Vue({
+            el:'#app',
+            data:{
+                todos,
+                todosText:''
+            },
+            methods:{
+                handle:function(){
+                    const todosText=this.todosText.trim();
+                    if(todosText.length==0){
+                        return;
+                    }
+                    this.todos.push({
+                        id:this.todos[this.todos.length-1]+1,
+                        title:todosText,
+                        done:false
+                    })
+                    this.todosText='';
+                },
+                handleRemoveTodosClick:function(index){
+                    this.todos.splice(index,1);
+                }
+            }
+        })
+    </script>
+</body>
+</html>

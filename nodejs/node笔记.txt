@@ -1,0 +1,36 @@
+var fs=require('fs'); 引入文件系统模块
+var http=require('http');引入网络服务模块
+var url=require('url');
+url.parse(req.url,true)返回一个对象
+
+node打开测试界面
+
+
+http
+    .createServer(function(req,res){
+	res.end('hello word')
+})
+    .listen(3000,function(){
+	console.log("server is running...")
+})
+
+
+fs.readFile('路径',function(error,data){	
+})
+var template=require("art-template");
+template.render("data.tostring()",{
+	files:files,
+	name:'jack'
+})
+
+var b=require('模块')
+导出多个成员
+export.s=123,
+export.a='hello',
+
+b得到一个对象
+导出单个成员
+module.export="hello"
+
+b得到一个字符串
+

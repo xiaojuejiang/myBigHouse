@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Document</title>
+<script src="../vue.js"></script>
+<script src="../vue-router-3.0.1.js"></script>
+<style>
+    .v-enter,
+    .v-leave-to{
+        opacity: 0;
+        transform: translateX(150px);
+    }
+    .v-enter-active,
+    .v-leave-active{
+        transition:all 1s ease;
+    }
+</style>
+</head>
+<body>
+    <div id="app">
+        <router-link to="login" tag="span">登录</router-link>
+        <router-link to="register" tag="span">注册</router-link>
+        <transition mode="out-in">
+                <router-view></router-view>
+        </transition>
+    </div>
+    <script>
+        var login={
+            template:'<h1>登录</h1>',           
+        }
+        var register={
+            template:'<h1>注册</h1>',           
+        }
+        var router=new VueRouter({
+            routes:[
+                {path:'/',redirect:'/login'},
+                {path:'/login',component:login},
+                {path:'/register',component:register}
+            ]
+        })
+        
+        var vm = new Vue({
+        el: '#app',
+        data: {},
+        methods: {},
+        router
+    })
+</script>
+</body>
+</html>

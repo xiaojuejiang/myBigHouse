@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+
+    <!-- Bootstrap core CSS -->
+    <link href="../public/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet"> -->
+
+    <!-- Custom styles for this template -->
+    <link href="../public/css/main.css" rel="stylesheet">
+    <script src="../public/js/jquery.js"></script>
+    <title>添加评论</title>
+    <style>
+        .contain{
+            width: 800px;
+            margin:50px auto;
+        }
+        .contain .input-group{
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="contain">
+        <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2">昵称</span>
+            <input id="user" type="text" class="form-control" placeholder="Username" aria-describedby="sizing-addon2">
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon" id="sizing-addon2">评论</span>
+            <textarea id="comment" class="form-control" aria-describedby="sizing-addon2">
+                </textarea>
+          </div>
+          <button id="btn" class="btn btn-success">添加留言</button>
+
+    </div>
+    <script src="../public/js/post.js"></script>
+</body>
+</html>

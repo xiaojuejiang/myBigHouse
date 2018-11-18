@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>我就是24K纯帅</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        姓氏:<input type="text" v-model='firstname'>
+        <br>
+        名字:<input type="text" v-model='lastname'>
+        <br>
+        <p>{{ firstname + lastname }}</p>  
+    </div>
+    <script>
+        var app=new Vue({
+            el:'#app',
+            data:{
+                firstname:'',
+                lastname:''
+            }
+        })
+    </script>
+</body>
+</html>

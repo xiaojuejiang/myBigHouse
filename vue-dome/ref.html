@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <button @click="$refs.login.show()">点击1</button>
+        <button @click="handleClick">点击2</button>
+        <login ref='login'></login>
+        <register ref='register'></register>
+        <!-- <p>{{$refs.login.msg}}</p> -->
+    </div>
+    <template id="login">
+        <p>{{msg}}</p>
+    </template>
+    <template id="register">
+        <p>{{msg}}</p>
+    </template>
+    <script>
+        var login = {
+            template: '#login',
+            data() {
+                return {
+                    msg: '这是login界面'
+                }
+            },
+            methods: {
+                show() {
+                    console.log('这是Login的方法')
+                }
+            }
+        }
+        var register = {
+            template: '#register',
+            data() {
+                return {
+                    msg: '这是register界面'
+                }
+            },
+            methods: {
+                show() {
+                    console.log('这是register的方法')
+                }
+            }
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: {},
+            methods: {
+                handleClick() {
+                    // this.$refs.login.show()
+                    console.log(this.$refs.register.msg)
+                }
+            },
+            components: {
+                login,
+                register
+            }
+        })
+    </script>
+</body>
+
+</html>

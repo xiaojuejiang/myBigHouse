@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.css">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <script src="../vue-resource-1.3.4.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <com  @add="addList" :></com>
+        <ul class="list-group">
+            <li v-for="item in list" v-if="item.isDel==0" :key="item.id" class="list-group-item">{{item.comment}}
+                <a href="javascript:;" @click="del(item.id)">删除</a>
+                <span class="badge">{{item.name}}</span>
+            </li>
+        </ul>
+
+    </div>
+    <template id="tpl">
+        <form class="form-inline  container">
+            <div class="form-group">
+                <label>name:<input type="text" class="form-control" v-model="name" placeholder="name">
+                </label>
+                <label>comment:<input type="text" class="form-control" v-model="comment" placeholder="comment">
+                </label>
+                <button @click.prevent="handleClick" type="submit" class="btn btn-primary">添加</button>
+            </div>
+        </form>
+    </template>
+    <script>
+        Vue.http.options.root = "http://127.0.0.1:3000"
+        Vue.http.options.emulateJSON = true;
+        var com = {
+            template: '#tpl',
+            data() {
+                return {
+                    name:'',
+                    comment:''
+                }
+            },
+            methods: {
+                handleClick() {
+                    this.$emit('add',this.name,this.comment)
+                }
+            }
+        }
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                name: '',
+                comment: '',
+                list: []
+            },
+            methods: {
+                getList() {
+                    this.$http.get('getList').then(result => {
+                        // console.log(result)
+                        if (result.status == 200) {
+                            this.list = result.body.data
+                        }
+                    })
+                },
+                addList(name,comment){
+                    // console.log(name,comment)
+                    this.$http.post('addList',{name:name,comment:comment}).then(result=>{
+                        if(result.body.status==200){
+                            this.getList()
+                        }
+                    })
+                },
+                del(id){
+
+                }
+            },
+            components: {
+                com
+            },
+            created() {
+                this.getList()
+            }
+        })
+    </script>
+</body>
+
+</html>
